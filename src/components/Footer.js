@@ -1,13 +1,12 @@
 import React from 'react'
-import { CssBaseline } from '@material-ui/core'
+import { Container, CssBaseline, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(() => ({
     container: {
         margin: '100px 0 0 0',
-        border: '1px solid red',
         width: '100vw',
-        backgroundColor: 'blue' 
+        backgroundColor: '#0A2463' 
     }
 }))
 
@@ -16,12 +15,24 @@ const Footer = () => {
     return (
         <>
           <CssBaseline />
-          <div className={classes.container}>
-            <h1>Hi</h1>
-          </div>
+          <Container fullWidth align="center" gutter>
+            <Typography variant="h6">
+              &copy; Copyright 2021
+            </Typography>
+            <Typography>
+              Isaac Frank
+            </Typography>
+          </Container>
+          
 
         </>
     )
 }
 
 export default Footer
+
+const div = (
+  <div>
+            <h1>Hi</h1>
+          </div>
+)

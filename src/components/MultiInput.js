@@ -1,16 +1,16 @@
 import React from 'react'
-import { Button, Container, Typography, TextField } from '@material-ui/core'
+import { Button, Container, Typography, TextField, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(() => ({
     csv: {
         marginTop: "20px",
         marginBottom: "40px",
-        padding: "5px 80px",
+        padding: "50px 80px",
       }
 }))
 
-const MultiInput = ({ head }) => {
+const MultiInput = ({ head, isMatch }) => {
     const classes = useStyles()
     return (
         <>

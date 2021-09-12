@@ -10,7 +10,6 @@ import {
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/styles";
 import MultiInput from "../components/MultiInput";
-import Footer from "../components/Footer";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -62,8 +61,8 @@ const Verification = ({ menuItem, isMatch }) => {
                   style={{ width: "10%" }}
                 />
               </div>
-              <MultiInput head="Your TX's hashes" />
-              <MultiInput head="Original list of recipient" />
+              <MultiInput head="Your TX's hashes" isMatch={isMatch}/>
+              <MultiInput head="Original list of recipient" isMatch={isMatch}/>
               <Container align="center">
                 <Button variant="contained" color="primary" size="large">
                   Check
@@ -73,9 +72,6 @@ const Verification = ({ menuItem, isMatch }) => {
           </Container>
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
       
     </>
   );

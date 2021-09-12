@@ -48,7 +48,7 @@ export const useStyles = makeStyles(() => ({
   },
   href: {
     textDecoration: 'none',
-    color: 'inherit',
+    color: '#FFFAFF',
   }
 }));
 
@@ -75,9 +75,11 @@ const AppBarComp = ({ menuItem, isMatch, openDrawer, setOpenDrawer }) => {
       <AppBar position="fixed" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
           <Grid container className={classes.containerHeader}>
+          <Link to="/" className={classes.href}>
             <Typography variant="h4">
-            <Link to="/" className={classes.href}>Isaac Frank</Link>
+            Isaac Frank
             </Typography>
+            </Link>
           </Grid>
           <Grid container spacing={2} className={classes.gridMenu}>
             {menuItem.map((menu, i) => (

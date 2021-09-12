@@ -11,7 +11,7 @@ import AdbIcon from "@material-ui/icons/Adb";
 import AdjustIcon from "@material-ui/icons/Adjust";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles, withStyles, Theme, createStyles } from "@material-ui/styles";
 import MultiInput from "../components/MultiInput";
 
 const useStyles = makeStyles(() => ({
@@ -19,10 +19,24 @@ const useStyles = makeStyles(() => ({
     marginTop: "50px",
     paddingTop: "60px",
   },
+  tokenLg: {
+    display: "flex",
+    flexDirection: "row",
+    padding: '80px',
+    height: "200px",
+    justifyContent: "center",
+    alignItems:'center'
+  },
+  tokenSm: {
+    display: "flex",
+    flexDirection: "column",
+    height: "200px",
+    justifyContent: "space-between",
+  },
 }));
 
+
 const Home = ({ menuItem, isMatch }) => {
-    
   const classes = useStyles();
 
   const lists = [
@@ -31,7 +45,59 @@ const Home = ({ menuItem, isMatch }) => {
     { listIcon: <ChangeHistoryIcon />, listName: "Binance Smart Chain" },
   ];
 
-  const inputHead = "List of Addresses in CSV"
+  const inputHead = "List of Addresses in CSV";
+
+  const IOSSwitch = withStyles((theme) => ({
+    root: {
+      width: 42,
+      height: 26,
+      padding: 0,
+      margin: theme.spacing(1),
+    },
+    switchBase: {
+      padding: 1,
+      '&$checked': {
+        transform: 'translateX(16px)',
+        color: theme.palette.common.white,
+        '& + $track': {
+          opacity: 1,
+          border: 'none',
+        },
+      },
+      '&$focusVisible $thumb': {
+        color: '#52d869',
+        border: '6px solid #fff',
+      },
+    },
+    thumb: {
+      width: 24,
+      height: 24,
+    },
+    track: {
+      borderRadius: 26 / 2,
+      border: `1px solid ${theme.palette.grey[400]}`,
+      backgroundColor: theme.palette.grey[50],
+      opacity: 1,
+      transition: theme.transitions.create(['background-color', 'border']),
+    },
+    checked: {},
+    focusVisible: {},
+  }))(({ classes, ...props }) => {
+    return (
+      <Switch
+        focusVisibleClassName={classes.focusVisible}
+        disableRipple
+        classes={{
+          root: classes.root,
+          switchBase: classes.switchBase,
+          thumb: classes.thumb,
+          track: classes.track,
+          checked: classes.checked,
+        }}
+        {...props}
+      />
+    );
+  });
 
   return (
     <>
@@ -46,14 +112,18 @@ const Home = ({ menuItem, isMatch }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            marginBottom: "30px"
+            marginBottom: "30px",
           }}
         >
           {lists.map((list) => (
             <>
-              <span style={{
-                paddingLeft: "30px",
-              }}>{list.listIcon}</span>
+              <span
+                style={{
+                  paddingLeft: "30px",
+                }}
+              >
+                {list.listIcon}
+              </span>
               <span
                 style={{
                   paddingRight: "30px",
@@ -64,12 +134,16 @@ const Home = ({ menuItem, isMatch }) => {
             </>
           ))}
         </div>
-        <div className={classes.token}>
-        <form>
+
+        <div className={isMatch ? classes.tokenSm : classes.tokenLg}>
           <TextField
             label="Token Address"
-            variant="outlined"
-            style={{ width: "60%" }}
+            variant={isMatch ? "filled" : "outlined" }
+            style={
+              isMatch
+                ? { width: "100%", marginButtom: "20px" }
+                : { width: "60%" }
+            }
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -78,17 +152,15 @@ const Home = ({ menuItem, isMatch }) => {
               ),
             }}
           />
+
           <TextField
             label="Decimal"
-            variant="outlined"
-            style={{ width: "10%" }}
+            variant={isMatch ? "filled" : "outlined" }
+            style={isMatch ? { width: "100%" } : { width: "10%" }}
           />
-          <Switch
-        name="checkedA"
-        label="Hello"
-        inputProps={{ 'aria-label': 'primary checkbox' }}
-      />
-          </form>
+
+          
+          <IOSSwitch label="Deflationary" />
         </div>
         <MultiInput head={inputHead} />
       </Container>
@@ -97,3 +169,13 @@ const Home = ({ menuItem, isMatch }) => {
 };
 
 export default Home;
+
+
+const oldSwitch = (
+  <Switch
+            labelPlacement="Top"
+            label="start"
+            size="medium"
+            inputProps={{ "aria-label": "primary checkbox" }}
+          />
+)

@@ -70,4 +70,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ### Theming Reference
-[https://coolors.co/5a7d7c-dadff7-232c33-a0c1d1-b5b2c2]
+[https://coolors.co/0a2463-3e92cc-fffaff-d8315b-1e1b18]

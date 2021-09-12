@@ -9,6 +9,7 @@ import AppBarComp from "./components/AppBarComp";
 import AppBarCompSm from "./components/AppBarCompSm";
 import NotFound from "./screens/NotFound";
 import DrawerComp from "./components/DrawerComp"
+import Footer from "./components/Footer"
 //import { purple } from "@material-ui/core/colors";
 
 export default function App() {
@@ -24,12 +25,18 @@ export default function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#5A7D7C",
+        main: "#0A2463",
       },
       secondary: {
-        main: '#A0C1D1'
+        main: '#D8315B'
       }
     },
+    typography: {
+      fontFamily: `'Noto Sans JP', 'sans-serif'`
+    },
+    text: {
+      primary: '#FFFAFF'
+    }
   });
 
   const myTheme = useTheme();
@@ -78,6 +85,7 @@ export default function App() {
         setOpenDrawer={setOpenDrawer}
         menuItem={menuItem}
       />
+            <Footer />
         </BrowserRouter>
       </ThemeProvider>
       
