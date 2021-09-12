@@ -1,17 +1,10 @@
 import React from 'react'
 import { Container, CssBaseline, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(() => ({
-    container: {
-        margin: '100px 0 0 0',
-        width: '100vw',
-        backgroundColor: '#0A2463' 
-    }
-}))
+
+ 
 
 const Footer = () => {
-    const classes = useStyles()
     return (
         <>
           <CssBaseline />

@@ -11,7 +11,7 @@ import AdbIcon from "@material-ui/icons/Adb";
 import AdjustIcon from "@material-ui/icons/Adjust";
 import ChangeHistoryIcon from "@material-ui/icons/ChangeHistory";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles, withStyles, Theme, createStyles } from "@material-ui/styles";
+import { makeStyles, withStyles } from "@material-ui/styles";
 import MultiInput from "../components/MultiInput";
 
 const useStyles = makeStyles(() => ({
@@ -171,11 +171,3 @@ const Home = ({ menuItem, isMatch }) => {
 export default Home;
 
 
-const oldSwitch = (
-  <Switch
-            labelPlacement="Top"
-            label="start"
-            size="medium"
-            inputProps={{ "aria-label": "primary checkbox" }}
-          />
-)
