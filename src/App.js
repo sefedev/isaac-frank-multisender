@@ -12,6 +12,7 @@ import DrawerComp from "./components/DrawerComp"
 import Footer from "./components/Footer"
 //import { purple } from "@material-ui/core/colors";
 
+
 export default function App() {
 
   const menuItem = [
@@ -22,22 +23,52 @@ export default function App() {
     { item: "Profile", link: "/profile" },
   ];
 
-  const theme = createTheme({
+  //Dark Mode Theming
+  const [isDark, setIsDark] = useState(false);
+
+  const onClickHandler = () => {
+    setIsDark(!isDark);
+  };
+
+  const lightTheme = createTheme({
     palette: {
+      background: {
+        default: '#E8E8E8'
+      },
       primary: {
-        main: "#0A2463",
+        main:  '#D8315B'
       },
       secondary: {
-        main: '#D8315B'
+        main: "#0A2463",
       }
     },
     typography: {
       fontFamily: `'Noto Sans JP', 'sans-serif'`
     },
-    text: {
-      primary: '#FFFAFF'
-    }
   });
+
+
+  const darkTheme = createTheme({
+    palette: {
+      background: {
+        default: '#515151',
+      },
+      primary: {
+        main: "#0A2463" 
+      },
+      secondary: {
+        main: '#D8315B',
+      }
+    },
+    typography: {
+      fontFamily: `'Noto Sans JP', 'sans-serif'`,
+      fontColor: '#BF1FBF'
+    },
+    
+  });
+
+  console.log(darkTheme)
+
 
   const myTheme = useTheme();
   const isMatch = useMediaQuery(myTheme.breakpoints.down("sm"));
@@ -48,11 +79,9 @@ export default function App() {
     setOpenDrawer(!openDrawer)
   }
 
-  console.log(theme)
-
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <BrowserRouter>
           {isMatch ? (
             <AppBarCompSm
@@ -62,7 +91,10 @@ export default function App() {
               toggleHandler={toggleHandler}
             />
           ) : (
-            <AppBarComp menuItem={menuItem} />
+            <AppBarComp 
+            onClickHandler={onClickHandler}
+            isDark={isDark}
+            menuItem={menuItem} />
           )}
           <Switch>
             <Route exact path="/">
