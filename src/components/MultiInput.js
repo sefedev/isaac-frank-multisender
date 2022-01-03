@@ -22,8 +22,8 @@ const MultiInput = ({ head, isMatch }) => {
         <div
           style={{ display: "flex", justifyContent: "space-between" }}
         >
-          <Typography>{head}</Typography>
-          <Typography>Show Example CSV</Typography>
+          <Typography style={{textAlign:"left"}}>{head}</Typography>
+          <Typography style={{textAlign:"left"}}>Show Example CSV</Typography>
         </div>
         <TextField
           variant="outlined"

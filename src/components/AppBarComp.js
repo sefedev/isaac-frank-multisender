@@ -94,7 +94,7 @@ const AppBarComp = ({ menuItem, isMatch, openDrawer, setOpenDrawer, onClickHandl
             </Grid>
             <Grid item>
               <IconButton>
-                <TelegramIcon />
+                <TelegramIcon href="https://t.me/zikyfranky" target="blank"/>
               </IconButton>
             </Grid>
           </Grid>

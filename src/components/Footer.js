@@ -1,31 +1,38 @@
 import React from 'react'
-import { Container, CssBaseline, Typography } from '@material-ui/core'
+import { AppBar, Toolbar, Container, Typography } from '@material-ui/core'
 
 
- 
-
-const Footer = () => {
-    return (
-        <>
-          <CssBaseline />
-          <Container fullWidth align="center" gutter>
-            <Typography variant="h6">
-              &copy; Copyright 2021
+export default function Footer() {
+  return (
+      <AppBar position="static" color="primary" style={{ marginTop: "50px"}}>
+        <Container maxWidth="md">
+          <Toolbar>
+            <Typography variant="body1" color="inherit">
+              © 2019 Isaac Frank
             </Typography>
-            <Typography>
-              Isaac Frank
-            </Typography>
-          </Container>
-          
-
-        </>
-    )
+          </Toolbar>
+        </Container>
+      </AppBar>
+  )
 }
 
-export default Footer
+// const Footer = () => {
+//     return (
+//         <>
+//           <CssBaseline />
+//           <Container fullWidth align="center" gutter>
+//             <Typography variant="h6">
+//               &copy; Copyright 2021
+//             </Typography>
+//             <Typography>
+//               Isaac Frank
+//             </Typography>
+//           </Container>
+          
 
-const div = (
-  <div>
-            <h1>Hi</h1>
-          </div>
-)
+//         </>
+//     )
+// }
+
+//export default Footer
+

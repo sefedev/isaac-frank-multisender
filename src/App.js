@@ -33,13 +33,13 @@ export default function App() {
   const lightTheme = createTheme({
     palette: {
       background: {
-        default: '#E8E8E8'
+        default: '#d9d9d9'
       },
       primary: {
-        main:  '#D8315B'
+        main:  '#0E402D'
       },
       secondary: {
-        main: "#0A2463",
+        main: "#9FCC2E",
       }
     },
     typography: {
@@ -50,19 +50,19 @@ export default function App() {
 
   const darkTheme = createTheme({
     palette: {
-      background: {
-        default: '#515151',
-      },
+      type: "dark",
+      
       primary: {
-        main: "#0A2463" 
+        main: "#0E402D" 
       },
       secondary: {
-        main: '#D8315B',
+        main: '#9FCC2E',
       }
     },
+    
     typography: {
       fontFamily: `'Noto Sans JP', 'sans-serif'`,
-      fontColor: '#BF1FBF'
+      fontColor: '#000000'
     },
     
   });
